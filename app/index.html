@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Vice Cover Studio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">NEON VICE <span>COVER STUDIO</span></div>
+  <div class="tagline">Multi-panel poster covers from your own photos — fully offline, nothing uploaded.</div>
+</header>
+<main class="layout">
+  <section class="stage">
+    <canvas id="preview" width="1080" height="1080"></canvas>
+    <p class="hint">Drag a panel photo to reposition it. Click a panel to select it, then use the zoom slider.</p>
+  </section>
+  <aside class="panel">
+    <h2>Photos</h2>
+    <label class="filebtn">Load photos from this device
+      <input id="photoInput" type="file" accept="image/*" multiple hidden>
+    </label>
+    <div class="samples">
+      <span>Or try a sample:</span>
+      <button data-sample="samples/driver.jpg">Driver</button>
+      <button data-sample="samples/beach.jpg">Boardwalk</button>
+      <button data-sample="samples/crew.jpg">Rooftop crew</button>
+    </div>
+    <div id="panelList" class="panel-list"></div>
+
+    <h2>Layout</h2>
+    <div class="row" id="layoutRow">
+      <button data-layout="trio" class="on">Three tall</button>
+      <button data-layout="grid4">Four grid</button>
+      <button data-layout="hero">Hero + two</button>
+    </div>
+
+    <h2>Colour grade</h2>
+    <div class="row" id="gradeRow">
+      <button data-grade="sunset" class="on">Vice sunset</button>
+      <button data-grade="neon">Neon night</button>
+      <button data-grade="mono">Mono grit</button>
+    </div>
+
+    <h2>Selected panel</h2>
+    <label class="slider">Zoom <input id="zoomRange" type="range" min="100" max="300" value="100"></label>
+    <label class="slider">Grade strength <input id="gradeRange" type="range" min="0" max="100" value="55"></label>
+
+    <h2>Lettering</h2>
+    <label class="field">Title <input id="titleInput" type="text" value="NEON VICE" maxlength="24"></label>
+    <label class="field">Caption <input id="captionInput" type="text" value="SUMMER NEVER ENDS" maxlength="40"></label>
+    <label class="field">Plate text <input id="plateInput" type="text" value="VI" maxlength="4"></label>
+    <label class="check"><input id="plateToggle" type="checkbox" checked> Show licence-plate badge</label>
+
+    <h2>Export PNG</h2>
+    <div class="row" id="sizeRow">
+      <button data-size="1080x1080" class="on">1080 × 1080</button>
+      <button data-size="1080x1350">1080 × 1350</button>
+      <button data-size="1920x1080">1920 × 1080</button>
+    </div>
+    <button id="exportBtn" class="export">Export cover PNG</button>
+    <p class="note">Exports render at full size on a hidden canvas. Your photos stay on this device.</p>
+  </aside>
+</main>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
